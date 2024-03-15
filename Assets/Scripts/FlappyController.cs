@@ -57,6 +57,11 @@ public class FlappyController : MonoBehaviour
     {
         StartCoroutine(Co_OnDeath());
     }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        StartCoroutine(Co_OnDeath());
+    }
 
     IEnumerator Co_OnDeath()
     {
