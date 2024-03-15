@@ -38,11 +38,17 @@ public class FlappyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !_isDead)
+        if (_isDead) return;
+        
+        if (Input.GetMouseButtonDown(0))
         {
             if (_rb.simulated)
             {
                 _rb.velocity = new Vector2(_rb.velocity.x, flappingStrength);
+            }
+            else
+            {
+                _rb.simulated = true;
             }
         }
     }
