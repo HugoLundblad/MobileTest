@@ -26,10 +26,13 @@ public class RandomObjectSpawner : MonoBehaviour
             default: throw new IndexOutOfRangeException();
         }
     }
+    
+    
 
     void SpawnRandomObject()
     {
         var o = GameObject.CreatePrimitive(GetRandomPrimitiveType());
-        o.AddComponent<Rigidbody>();
+        var rb = o.AddComponent<Rigidbody>();
+        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
     }
 }
