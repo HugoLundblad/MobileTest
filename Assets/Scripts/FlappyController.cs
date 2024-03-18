@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class FlappyController : MonoBehaviour
 {
-    public float flappingStrength;
+    public float flappingStrength; 
+    public int score;
     private Rigidbody2D _rb;
     private bool _isDead = false;
     
@@ -57,10 +59,15 @@ public class FlappyController : MonoBehaviour
     {
         StartCoroutine(Co_OnDeath());
     }
-    
-    private void OnTriggerEnter2D(Collider2D other)
+
+    private void OnBecameInvisible()
     {
         StartCoroutine(Co_OnDeath());
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        score++;
     }
 
     IEnumerator Co_OnDeath()
