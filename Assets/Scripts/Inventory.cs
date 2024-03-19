@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public Color[] color;
     public GameObject item;
     // Start is called before the first frame update
     void Start()
